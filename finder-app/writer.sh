@@ -1,17 +1,17 @@
 #!/usr/bin/bash
 
-if [$# < 2]
+if [ $# -lt 2 ]
 then
     echo "Not enough arguments provided."
     exit 1
 fi
 
-WRITEFILE = $1
-WRITESTR = $2
+WRITEFILE=$1
+WRITESTR=$2
 
-cat $WRITESTR > $WRITEFILE
+echo "$WRITESTR" > "$WRITEFILE"
 
-if [$?]
+if [ $? -ne 0 ]
 then
     echo "File write unsuccessful."
     exit 1

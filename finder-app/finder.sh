@@ -1,22 +1,22 @@
 #!/usr/bin/bash
 
-if [$# < 2]
+if [ $# -lt 2 ]
 then
     echo "Not enough arguments provided."
     exit 1
 fi
 
-FILESDIR = $1
-SEARCHSTR = $2
+FILESDIR=$1
+SEARCHSTR=$2
 
-if [! -d $FILESDIR]
+if [ ! -d $FILESDIR ]
 then
     echo "Provided filesdir is not a directory."
     exit 1
 fi
 
-FILECOUNT = find $FILESDIR | wc -l
-MATCHCOUNT = grep -lr "$SEARCHSTR" $FILESDIR/* | wc -l
+FILECOUNT=$(ls $FILESDIR | wc -l)
+MATCHCOUNT=$(grep -lr "$SEARCHSTR" $FILESDIR/* | wc -l)
 
-echo "The number of files is $FILECOUNT "
-echo "and the number of matching lines is $MATCHCOUNT"
+echo "The number of files are $FILECOUNT "
+echo "and the number of matching lines are $MATCHCOUNT"
