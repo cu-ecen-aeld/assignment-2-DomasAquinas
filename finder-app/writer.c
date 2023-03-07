@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
 
     // Check for at least two command line arguments
     if (argc < 3) {
-        printf("Not enough arguments provided.");
+        syslog(LOG_ERR, "Not enough arguments provided.");
         closelog();
         return 1;
     }
