@@ -14,6 +14,7 @@ int main(int argc, char *argv[]) {
     // Check for at least two command line arguments
     if (argc < 3) {
         printf("Not enough arguments provided.");
+        closelog();
         return 1;
     }
 
@@ -27,17 +28,21 @@ int main(int argc, char *argv[]) {
     int closeResult;
     FILE * writeFile;
     writeFile = fopen(WRITEFILE, "a");
-    writeResult = fprintf(writeFile, WRITESTR);
+    writeResult = fputs(WRITESTR, writeFile);
     closeResult = fclose(writeFile);
 
     // Report an error if one occurred
     if (writeResult <= 0) {
         syslog(LOG_ERR, "File write unsuccessful.");
+        closelog();
         return 1;
     }
     if (closeResult == EOF) {
         syslog(LOG_ERR, "File close unsuccessful.");
+        closelog();
         return 1;
     }
+
+    closelog();
 
 }
