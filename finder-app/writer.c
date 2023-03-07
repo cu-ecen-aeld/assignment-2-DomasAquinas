@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
     int writeResult;
     int closeResult;
     FILE * writeFile;
-    writeFile = fopen(WRITEFILE, "a");
+    writeFile = fopen(WRITEFILE, "w");
     writeResult = fputs(WRITESTR, writeFile);
     closeResult = fclose(writeFile);
 
