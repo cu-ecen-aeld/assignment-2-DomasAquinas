@@ -7,7 +7,7 @@ endif
 
 # Compile the writer program
 writer : writer.c
-	$(CC) -c $^ -o $@
+	$(CC) $^ -o $@
 
 # Clean target - remove the compiled binary
 .PHONY clean :
