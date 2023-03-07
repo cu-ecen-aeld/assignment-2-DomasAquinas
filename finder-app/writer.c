@@ -44,5 +44,5 @@ int main(int argc, char *argv[]) {
     }
 
     closelog();
-
+    return 0;
 }
